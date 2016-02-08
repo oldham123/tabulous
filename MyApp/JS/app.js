@@ -16,4 +16,4 @@ app.config(function($mdIconProvider) {
     .defaultIconSet('.././Assets/mdi.svg')
 });
 
-textFit(document.getElementsByClassName('textfit'));
+var sqlite = require('sqlite3');
