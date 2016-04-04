@@ -80,3 +80,5 @@ function Right(str, n){
         this.css(styles);
     }
 })(jQuery);
+
+// Test commit from master-desktop
