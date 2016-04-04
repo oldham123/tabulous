@@ -18,10 +18,10 @@
     "lorem-ipsum": "^1.0.3",
     "q": "^1.4.1",
     "rcedit": "^0.3.0",
-    "sqlite3": "^3.1.1",
     "wiredep": "^3.0.0"
   },
   "dependencies": {
+    "sqlite3": "^3.1.1",
     "snapsvg": "^0.4.0"
   }
 }
