@@ -100,11 +100,12 @@
                             
                         </div>
                     </div>
-                    <div flex="80" scrollbar="myFirstScrollbar" style="background-color: rgba(0,0,0,0.05); z-index: 2147483647; position: relative">
+                    <div flex="80" scrollbar="myFirstScrollbar" style="background-color: rgba(0,0,0,0.05); position: relative">
                         <ui-view></ui-view>
                     </div>
                 </div>
-            <div id="load-wrapper" style="position: relative; z-index: 10000000"></div>
+            <div id="load-wrapper" style="position: absolute; z-index: 10000000">
+            </div>
             <!--RIGHT NAV-->
             <md-sidenav flex layout="column" class="md-sidenav-right md-whiteframe-16dp" md-component-id="right">
                 <md-toolbar class="md-primary">
