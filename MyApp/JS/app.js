@@ -1,4 +1,4 @@
-var app = angular.module('TabItElectron', ['ngMaterial', 'ui.router']);
+var app = angular.module('TabItElectron', ['ngMaterial', 'ui.router', 'SmoothScrollbar', 'ngAnimate']);
 
 app.config(function($mdThemingProvider) {
     $mdThemingProvider.theme('default')
@@ -16,4 +16,28 @@ app.config(function($mdIconProvider) {
     .defaultIconSet('.././Assets/mdi.svg')
 });
 
-var sqlite = require('sqlite3');
+var fs = require("fs");
+var sqlite3 = require('sqlite3').verbose();
+var velocity = require('../../Bower Library/velocity/velocity.js');
+
+window.snap = require('snapsvg');
+window.$ = window.jQuery = require('../../Bower Library/jquery/dist/jquery.js');
+
+function Left(str, n){
+	if (n <= 0)
+	    return "";
+	else if (n > String(str).length)
+	    return str;
+	else
+	    return String(str).substring(0,n);
+}
+function Right(str, n){
+    if (n <= 0)
+       return "";
+    else if (n > String(str).length)
+       return str;
+    else {
+       var iLen = String(str).length;
+       return String(str).substring(iLen, iLen - n);
+    }
+}

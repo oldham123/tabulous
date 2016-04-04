@@ -1,7 +1,5 @@
-app.controller('MainController', function ($timeout, $mdSidenav, $mdUtil, $log) {
-    // this.openLeftMenu = function() {
-    //     $mdSidenav('left').toggle();
-    
+app.controller('MainController', function ($timeout, $mdSidenav, $mdUtil, $log, $state) {
+
     this.buildToggler = function(navID) {
       var debounceFn =  $mdUtil.debounce(function(){
             $mdSidenav(navID)
@@ -16,7 +14,10 @@ app.controller('MainController', function ($timeout, $mdSidenav, $mdUtil, $log) 
     
     this.openRightMenu = this.buildToggler('right');
     
+    this.status = "home";
+    this.homeTop = 0;
+    
+    var createTournamentClass = "";
+    var loadTournamentClass = "";
+    var homeClass = "";
 });
-
-var createTournamentClass = "";
-var loadTournamentClass = "";

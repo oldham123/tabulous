@@ -1,4 +1,11 @@
-$stateProvider.state('createTournament', {
-  templateUrl: './../Views/createTournament.html',
-  controller: 'createController as create'
-})
+app.config(function($stateProvider) {
+    
+    $stateProvider.state('home', {
+        templateUrl: './../Views/home.html',
+        controller: 'homeController as home'
+    })
+});
+
+app.run(['$state', function ($state, $rootScope) {
+    $state.transitionTo('home');
+}])

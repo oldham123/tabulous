@@ -15,9 +15,13 @@
     "gulp": "^3.9.0",
     "gulp-inject": "^3.0.0",
     "gulp-run": "^1.6.12",
+    "lorem-ipsum": "^1.0.3",
     "q": "^1.4.1",
     "rcedit": "^0.3.0",
     "sqlite3": "^3.1.1",
     "wiredep": "^3.0.0"
+  },
+  "dependencies": {
+    "snapsvg": "^0.4.0"
   }
 }

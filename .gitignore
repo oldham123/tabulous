@@ -188,6 +188,7 @@ pip-log.txt
 ## My Stuff
 ##############
 
-node_modules
+node_modules/*
+!node_modules/sqlite3
 Bower Library
 My App/Bower Library
