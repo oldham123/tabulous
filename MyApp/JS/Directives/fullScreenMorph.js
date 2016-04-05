@@ -33,46 +33,73 @@ function createLink(scope, element, attr, create){
                       marginLeft = parseInt(Left(marginLeft, marginLeft.length - 2));
                       var marginTop = oldButton.css('margin-top');
                       marginTop = parseInt(Left(marginTop, marginTop.length - 2));
-                      newButtonText.copyCss(oldButtonText);
-                      newButton.copyCss(oldButton);
-                      //   velocity(newButtonText, {
-                      //       "opacity": "0"
-                      //   }, {
-                      //       duration: 500,
-                      //       easing: "easeOutExpo"
-                      //   });
-                      //   velocity(newButton, {
-                      //       "width": "100vw"
-                      //   }, {
-                      //       duration: 1500,
-                      //       easing: "easeInExpo",
-                      //       queue: false,
-                      //       delay: 300
-                      //   });
-                      //   velocity(newButton, {
-                      //       "height": "100vh"
-                      //   }, {
-                      //       duration: 1500,
-                      //       easing: "easeInExpo",
-                      //       queue: false,
-                      //       delay: 300
-                      //   });
-                      //   velocity(newButton, {
-                      //       "margin-left": marginLeft - $('#full-screen').offset().left
-                      //   }, {
-                      //       duration: 1500,
-                      //       easing: "easeInExpo",
-                      //       queue: false,
-                      //       delay: 300
-                      //   });
-                      //   velocity(newButton, {
-                      //       "margin-top": marginTop - $('#full-screen').offset().top
-                      //   }, {
-                      //       duration: 1500,
-                      //       easing: "easeInExpo",
-                      //       queue: false,
-                      //       delay: 300
-                      //   });
+                      newButtonText.css('font-size', oldButtonText.css('font-size'));
+                      newButtonText.css('letter-spacing', oldButtonText.css('letter-spacing'));
+                      newButton.css('display', oldButton.css('display'));
+                      newButton.css('font-size', oldButton.css('font-size'));
+                      newButton.css('letter-spacing', oldButton.css('letter-spacing'));
+                        velocity(newButtonText, {
+                            "opacity": "0"
+                        }, {
+                            duration: 300,
+                            easing: "easeOutExpo"
+                        });
+                        velocity(newButton, {
+                            "width": "100vw"
+                        }, {
+                            duration: 500,
+                            easing: "easeInOutExpo",
+                            queue: false,
+                            delay: 150
+                        });
+                        velocity(newButton, {
+                            "height": "100vh"
+                        }, {
+                            duration: 500,
+                            easing: "easeInOutExpo",
+                            queue: false,
+                            delay: 150
+                        });
+                        velocity($('#load-wrapper'), {
+                            "left": 0
+                        }, {
+                            duration: 500,
+                            easing: "easeInOutExpo",
+                            queue: false,
+                            delay: 150
+                        });
+                        velocity($('#load-wrapper'), {
+                            "top": 0
+                        }, {
+                            duration: 500,
+                            easing: "easeInOutExpo",
+                            queue: false,
+                            delay: 150
+                        });
+                        velocity(newButton, {
+                            "left": 0
+                        }, {
+                            duration: 500,
+                            easing: "easeInOutExpo",
+                            queue: false,
+                            delay: 150
+                        });
+                        velocity(newButton, {
+                            "top": 0
+                        }, {
+                            duration: 500,
+                            easing: "easeInOutExpo",
+                            queue: false,
+                            delay: 150
+                        });
+                        velocity(newButton, {
+                            "margin": 0
+                        }, {
+                            duration: 500,
+                            easing: "easeInOutExpo",
+                            queue: false,
+                            delay: 150
+                        });
                   });
               });
 }
