@@ -1,3 +1,35 @@
+.dark-primary-color { 
+    background: #5D4037; 
+}
+
+.default-primary-color { 
+    background: #795548; 
+}
+
+.light-primary-color { 
+    background: #A1887F; 
+}
+
+.text-primary-color { 
+    color: #FFFFFF; 
+}
+
+.accent-color { 
+    background: #9E9E9E; 
+}
+
+.primary-text-color { 
+    color: #212121; 
+}
+
+.secondary-text-color { 
+    color: #727272; 
+}
+
+.divider-color         { 
+    border-color: #B6B6B6; 
+}
+
 .flex-center {
     align-items: center;
     justify-content: center;
