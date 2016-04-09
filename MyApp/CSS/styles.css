@@ -107,3 +107,19 @@ md-dialog.fullscreen-dialog {
     height: 100%;
     border-radius: 0;
 }
+
+.create-title.ng-hide-add {
+    animation: 1s fadeOutUp;
+}
+
+.create-title.ng-hide-remove {
+    animation: 1s fadeInUp;
+}
+
+.lowercase {
+    text-transform: none;
+}
+
+.thin-text {
+    font-weight: 100;
+}

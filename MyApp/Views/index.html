@@ -23,9 +23,11 @@
     <script src="../../Bower Library/textfit/textFit.js"></script>
     <script src="../../Bower Library/smooth-scrollbar/dist/smooth-scrollbar.js"></script>
     <script src="../../Bower Library/angular-smooth-scrollbar/dist/angular-smooth-scrollbar.js"></script>
+    <script src="../../Bower Library/velocity/velocity.js"></script>
+    <script src="../../Bower Library/velocity/velocity.ui.js"></script>
     <!--endbower-->
     </head>
-    <body ng-cloak layout="column" ng-controller="MainController as main">
+    <body ng-cloak layout="column" ng-controller="MainController as main" ng-keyup="main.escapeForm()">
         <!--inject:js-->
     <script src="../JS/app.js"></script>
     <script src="../JS/database.js"></script>
@@ -51,20 +53,12 @@
                             <span class="title-animate third" ng-show="main.status == 'load'">load</span>
                         </div>
                     </div>
-                    <div layout="row" layout-align="space-around">    
-                        <md-button class="md-icon-button" style="height: 5em; width: 5em">
-                            <md-icon md-svg-icon="flag-checkered" style="color: white; height: 4em; width: 4em"></md-icon>
-                        </md-button>    
-                        <md-button class="md-icon-button" style="height: 5em; width: 5em" ng-click="main.openRightMenu()">
-                            <md-icon md-svg-icon="menu" style="height: 4em; width: 4em; color: white"></md-icon>
-                        </md-button> 
-                    </div>
                 </div> 
                 <!--MAIN CONTAINER-->
                 <div layout="row" style="width: 100%; height: 70vh: position: relative; z-index: auto" flex="noshrink">
                     <svg flex id="bubble-container" style="height: 100%; left: 0; top: {{ main.homeTop }}; position: absolute" indicator-bubble></svg>
                     <div flex="20" layout="column" class="md-whiteframe-4dp">
-                        <div class="md-button" id="home-button" size-watcher size-watcher-top="main.homeTop" style="float: clear; border-radius: 0px; margin: 0px; width: 100%" md-ink-ripple="true" ng-click="main.status='home'" ng-class="homeClass" ng-mousedown="homeClass='md-whiteframe-8dp'" ng-mouseup="homeClass=''" ui-sref="home" ui-sref-active="active-left-nav">
+                        <div class="md-button" id="home-nav" size-watcher size-watcher-top="main.homeTop" style="float: clear; border-radius: 0px; margin: 0px; width: 100%" md-ink-ripple="true" ng-click="main.status='home'" ng-class="homeClass" ng-mousedown="homeClass='md-whiteframe-8dp'" ng-mouseup="homeClass=''" ui-sref="home" ui-sref-active="active-left-nav">
                             <div layout="row" layout-align="space-around center">
                                 <div flex="15"></div>
                                 <md-icon flex="nogrow" md-svg-icon="home" style="height: 3.5vw; width: 2vw; margin: 0"></md-icon>
@@ -105,20 +99,10 @@
                     </div>
                 </div>
             <div id="load-wrapper" style="position: absolute; z-index: 10000000; top: 0; left: 0">
+                <div style="top: 100vh" class="md-button md-raised big-padding" id="full-screen-create">
+                    <span ng-hide="main.formOpen" style="opacity: 0" id="create-button-text">Click to create a tournament</span>
+                    <div class="create-title md-display-4 white-text thin-text lowercase" ng-show="main.formOpen">Create a tournament</div>
+                </div>
             </div>
-            <!--RIGHT NAV-->
-            <md-sidenav flex layout="column" class="md-sidenav-right md-whiteframe-16dp" md-component-id="right">
-                <md-toolbar class="md-primary">
-                    <div flex layout="row" layout-align="space-between center">
-                        <div class="md-display-1" layout-align="center center" style="font-size: 2em; padding: 0.89em">
-                            <span class="white-text">Options</span>
-                        </div>
-                    </div>
-                </md-toolbar>
-                <md-button class="md-raised md-primary" ng-click="main.openRightMenu()">
-                    <span class="white-text">Close Options</span>
-                </md-button>
-            </md-sidenav>
-            
     </body>
 </html>
