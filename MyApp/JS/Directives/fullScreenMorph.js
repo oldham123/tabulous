@@ -29,7 +29,7 @@ function createLink(scope, element, attr, create){
             var newButtonText = $('#create-button-text');
             var oldbutton = $('#full-screen-button');
             var oldButtonText = $('#old-create-button-text');
-            newButton.attr('style', 'position: absolute; z-index: 1000000; background-color: #A1887F');
+            newButton.attr('style', 'position: absolute; z-index: 1000000; background-color: #A1887F; opacity: 0');
             newButton.offset(oldButton.offset());
             var marginLeft = oldButton.css('margin-left');
             marginLeft = parseInt(Left(marginLeft, marginLeft.length - 2));
@@ -40,67 +40,23 @@ function createLink(scope, element, attr, create){
             newButton.css('display', oldButton.css('display'));
             newButton.css('font-size', oldButton.css('font-size'));
             newButton.css('letter-spacing', oldButton.css('letter-spacing'));
-              velocity(newButtonText, {
-                  "opacity": "0"
+              velocity(newButton, {
+                  "opacity": "1"
               }, {
                   duration: 300,
-                  easing: "easeOutExpo"
+                  easing: "easeOutExpo",
               });
               velocity(newButton, {
-                  "width": "100vw"
+                  width: "100vw",
+                  height: "100vh",
+                  left: 0,
+                  top: 0,
+                  margin: 0
               }, {
-                  duration: 500,
-                  easing: "easeInOutExpo",
+                  duration: 300,
+                  easing: "easeInOutCubic",
                   queue: false,
-                  delay: 150
-              });
-              velocity(newButton, {
-                  "height": "100vh"
-              }, {
-                  duration: 500,
-                  easing: "easeInOutExpo",
-                  queue: false,
-                  delay: 150
-              });
-              velocity($('#load-wrapper'), {
-                  "left": 0
-              }, {
-                  duration: 500,
-                  easing: "easeInOutExpo",
-                  queue: false,
-                  delay: 150
-              });
-              velocity($('#load-wrapper'), {
-                  "top": 0
-              }, {
-                  duration: 500,
-                  easing: "easeInOutExpo",
-                  queue: false,
-                  delay: 150
-              });
-              velocity(newButton, {
-                  "left": 0
-              }, {
-                  duration: 500,
-                  easing: "easeInOutExpo",
-                  queue: false,
-                  delay: 150
-              });
-              velocity(newButton, {
-                  "top": 0
-              }, {
-                  duration: 500,
-                  easing: "easeInOutExpo",
-                  queue: false,
-                  delay: 150
-              });
-              velocity(newButton, {
-                  "margin": 0
-              }, {
-                  duration: 500,
-                  easing: "easeInOutExpo",
-                  queue: false,
-                  delay: 150
+                  delay: 200
               });
         });
     });
@@ -112,8 +68,8 @@ function createLink(scope, element, attr, create){
             velocity(newButton, {
                 "margin-left": "-100vw"
             }, {
-                duration: 500,
-                easing: "easeInOutExpo",
+                duration: 700,
+                easing: "easeInOutCubic",
                 queue: false
             });
         }
