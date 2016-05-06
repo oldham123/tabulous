@@ -65,11 +65,19 @@ body {
 }
 
 .big-padding {
-    padding: 40px;
+    padding: 40px !important;
+}
+
+.padding {
+    padding: 20px !important;
 }
 
 .white-background {
     background-color: white;
+}
+
+.grey-background {
+    background-color: #EEEEEE;
 }
 
 .title-animate.ng-hide-add {
@@ -108,12 +116,19 @@ md-dialog.fullscreen-dialog {
     border-radius: 0;
 }
 
+.create-title {
+    position: absolute;
+    z-index: 100000001;
+    padding: 10vh;
+    width: 100vw;
+}
+
 .create-title.ng-hide-add {
-    animation: 1s fadeOutUp;
+    animation: 0.6s fadeOutUp;
 }
 
 .create-title.ng-hide-remove {
-    animation: 1s fadeInUp;
+    animation: 0.6s fadeInUp;
 }
 
 .lowercase {
@@ -122,4 +137,20 @@ md-dialog.fullscreen-dialog {
 
 .thin-text {
     font-weight: 100;
+}
+
+#create-form-container {
+    position: absolute; 
+    height: 75vh; 
+    top: 100vh; 
+    width: 100vw; 
+    background-color: white; 
+    z-index: 100000;
+}
+
+#initial-create-button {
+    outline: none !important;
+    position: absolute; 
+    top: 75vh; 
+    left: 45vw;
 }
