@@ -89,6 +89,10 @@ body {
     animation-fill-mode: backwards;
 }
 
+.title-animate {
+    white-space: pre;
+}
+
 .title-animate.first {
     z-index: auto;
     position: absolute;
@@ -116,18 +120,11 @@ md-dialog.fullscreen-dialog {
     border-radius: 0;
 }
 
-.create-title {
-    position: absolute;
-    z-index: 100000001;
-    padding: 10vh;
-    width: 100vw;
-}
-
-.create-title.ng-hide-add {
+#create-form-title.ng-hide-add {
     animation: 0.6s fadeOutUp;
 }
 
-.create-title.ng-hide-remove {
+#create-form-title.ng-hide-remove {
     animation: 0.6s fadeInUp;
 }
 
@@ -153,4 +150,12 @@ md-dialog.fullscreen-dialog {
     position: absolute; 
     top: 75vh; 
     left: 45vw;
+}
+
+.not-present {
+    display: none;
+}
+
+.invisible {
+    opacity: 0;
 }

@@ -22,7 +22,7 @@
     <script src="../../Bower Library/smooth-scrollbar/dist/smooth-scrollbar.js"></script>
     <script src="../../Bower Library/angular-smooth-scrollbar/dist/angular-smooth-scrollbar.js"></script>
     <script src="../../Bower Library/velocity/velocity.js"></script>
-    <script src="../../Bower Library/velocity/velocity.ui.js"></script>
+    <!--<script src="../../Bower Library/velocity/velocity.ui.js"></script>-->
     <!--endbower-->
     </head>
     <body ng-cloak layout="column" ng-controller="MainController as main" ng-keyup="main.escapeForm()">
@@ -30,11 +30,13 @@
     <script src="../JS/app.js"></script>
     <script src="../JS/database.js"></script>
     <script src="../JS/states.js"></script>
+    <script src="../JS/units/Length.js"></script>
     <script src="../JS/custom-easings/customEasings.js"></script>
     <script src="../JS/Directives/fullScreenMorph.js"></script>
     <script src="../JS/Directives/indicatorBubble.js"></script>
     <script src="../JS/Directives/mdxPaint.js"></script>
     <script src="../JS/Directives/sizeWatcher.js"></script>
+    <script src="../JS/Directives/watchWidth.js"></script>
     <script src="../JS/Controllers/homeController.js"></script>
     <script src="../JS/Controllers/mainController.js"></script>
     <!--endinject-->
@@ -43,13 +45,13 @@
                 <!--TOOLBAR-->
                 <div layout="row" layout-align="space-between end" style="height: 30vh; width: 100%; background-image: url(../Assets/headerImageOne.jpg); background-size: cover; background-position: center 25%; position: relative; z-index: 100" class="md-whiteframe-8dp">
                     <div layout="row" layout-align="start end">
-                        <div style="margin: 0; position: relative" class="md-display-4 white-text big-padding">
-                            <span class="title-animate">Tabulous | </span>
+                        <div style="margin: 0; position: relative; padding-right: 0 !important" class="md-display-4 white-text big-padding">
+                            <span class="title-animate">Tabulous |</span>
                         </div>
-                        <div style="margin: 0; position: absolute; padding-left: 0" class="md-display-4 white-text big-padding">
-                            <span class="title-animate first" ng-show="main.status == 'home'">home</span>
-                            <span class="title-animate second" ng-show="main.status == 'create'">create</span>
-                            <span class="title-animate third" ng-show="main.status == 'load'">load</span>
+                        <div style="margin: 0; position: absolute; padding-left: 0 !important; padding-right: 0 !important" class="md-display-4 white-text big-padding">
+                            <span class="title-animate first" ng-show="main.status == 'home'"> home</span>
+                            <span class="title-animate second" ng-show="main.status == 'create'"> create</span>
+                            <span class="title-animate third" ng-show="main.status == 'load'"> load</span>
                         </div>
                     </div>
                 </div> 
@@ -97,8 +99,11 @@
                         <ui-view></ui-view>
                     </div>
                 </div>
-            <div id="initial-create-button" full-screen-morph ng-click="main.formOpening()" class="open-create">
-                <span md-ink-ripple class="md-button md-raised padding" id="initial-create-button-text" style="font-size: 2em; background-color: #A1887F"><span class="text-primary-color" id="old-create-button-text">Click to create a tournament</span></span>
+            <span md-ink-ripple watch-width width-watcher-width="main.buttonWidth" full-screen-morph class="md-button md-raised big-padding create-form" id="initial-create-button" style="display: table; position: absolute; top: 75vh; font-size: 2em; background-color: #A1887F; margin: 0; z-index: 10000001">
+                <span class="text-primary-color create-form" id="initial-create-button-span">Click to create a tournament</span>
+                <span class="text-primary-color md-display-3 create-form" ng-show="main.createFormOpen" id="create-form-title" style="text-transform: none; font-weight: 200; display: table-cell; vertical-align: middle">Create a tournament</span>
+            </span>
+            <div id="create-form-container" class="not-present create-form" style="height: 100vh; width: 100vw; background-color: white; position: absolute; top: 0; left: 0; z-index: 10000000">
             </div>
     </body>
 </html>
