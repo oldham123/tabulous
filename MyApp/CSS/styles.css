@@ -43,6 +43,7 @@
 
 .white-text {
     color: rgba(255,255,255,0.87);
+    fill: rgba(255,255,255,0.87);
 }
 
 .z-auto {

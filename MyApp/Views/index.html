@@ -22,7 +22,7 @@
     <script src="../../Bower Library/smooth-scrollbar/dist/smooth-scrollbar.js"></script>
     <script src="../../Bower Library/angular-smooth-scrollbar/dist/angular-smooth-scrollbar.js"></script>
     <script src="../../Bower Library/velocity/velocity.js"></script>
-    <!--<script src="../../Bower Library/velocity/velocity.ui.js"></script>-->
+    <script src="../../Bower Library/velocity/velocity.ui.js"></script>
     <!--endbower-->
     </head>
     <body ng-cloak layout="column" ng-controller="MainController as main" ng-keyup="main.escapeForm()">
@@ -30,15 +30,15 @@
     <script src="../JS/app.js"></script>
     <script src="../JS/database.js"></script>
     <script src="../JS/states.js"></script>
-    <script src="../JS/units/Length.js"></script>
+    <script src="../JS/Controllers/homeController.js"></script>
+    <script src="../JS/Controllers/mainController.js"></script>
     <script src="../JS/custom-easings/customEasings.js"></script>
     <script src="../JS/Directives/fullScreenMorph.js"></script>
     <script src="../JS/Directives/indicatorBubble.js"></script>
     <script src="../JS/Directives/mdxPaint.js"></script>
     <script src="../JS/Directives/sizeWatcher.js"></script>
     <script src="../JS/Directives/watchWidth.js"></script>
-    <script src="../JS/Controllers/homeController.js"></script>
-    <script src="../JS/Controllers/mainController.js"></script>
+    <script src="../JS/fitText/jquery.fittext.js"></script>
     <!--endinject-->
             <!--LEFT NAV-->
             <!--<div layout="column" layout-align="center center">-->
@@ -58,7 +58,7 @@
                 <!--MAIN CONTAINER-->
                 <div layout="row" style="width: 100%; height: 70vh: position: relative; z-index: auto" flex="noshrink">
                     <svg flex id="bubble-container" style="height: 100%; left: 0; top: {{ main.homeTop }}; position: absolute" indicator-bubble></svg>
-                    <div flex="20" layout="column" class="md-whiteframe-4dp" style="z-index: 200">
+                    <div flex="20" layout="column" id="left-nav" class="md-whiteframe-4dp" style="z-index: 200">
                         <div class="md-button" id="home-nav" size-watcher size-watcher-top="main.homeTop" style="float: clear; border-radius: 0px; margin: 0px; width: 100%" md-ink-ripple="true" ng-click="main.status='home'" ng-class="homeClass" ng-mousedown="homeClass='md-whiteframe-8dp'" ng-mouseup="homeClass=''" ui-sref="home" ui-sref-active="active-left-nav">
                             <div layout="row" layout-align="space-around center">
                                 <div flex="15"></div>
@@ -102,8 +102,14 @@
             <span md-ink-ripple watch-width width-watcher-width="main.buttonWidth" full-screen-morph class="md-button md-raised big-padding create-form" id="initial-create-button" style="display: table; position: absolute; top: 75vh; font-size: 2em; background-color: #A1887F; margin: 0; z-index: 10000001">
                 <span class="text-primary-color create-form" id="initial-create-button-span">Click to create a tournament</span>
                 <span class="text-primary-color md-display-3 create-form" ng-show="main.createFormOpen" id="create-form-title" style="text-transform: none; font-weight: 200; display: table-cell; vertical-align: middle">Create a tournament</span>
+                <md-icon flex="nogrow" class="not-present white-text" id="create-icon" md-svg-icon="lead-pencil" style="height: 2vw; width: 2vw; margin: 0"></md-icon>
             </span>
             <div id="create-form-container" class="not-present create-form" style="height: 100vh; width: 100vw; background-color: white; position: absolute; top: 0; left: 0; z-index: 10000000">
+            </div>
+            <script>
+                window.mojs = require('../../Bower Library/mojs/lib/mojs.js');
+            </script>
+            <div id="animation-frame" style="height: 100vh; width: 100vw; position: absolute; top: 0; left: 0; z-index: 100000000; pointer-events: none;">
             </div>
     </body>
 </html>

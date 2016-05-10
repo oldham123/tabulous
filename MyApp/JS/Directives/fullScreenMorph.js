@@ -10,6 +10,7 @@ app.directive('fullScreenMorph', ['$timeout', function($timeout){
 
 function createLink(scope, element, attr, main){
     var button = $('#initial-create-button');
+    var icon = $('#create-icon')
     var oldButtonText = $('#initial-create-button-span');
     var formContainer = $('#create-form-container');
     
@@ -18,6 +19,7 @@ function createLink(scope, element, attr, main){
     element.on('click', function () {
         if(!scope.main.createFormOpen)
         {
+            scope.$apply(icon.addClass('not-present'));
             velocity(oldButtonText, {
                 "opacity": "0"
             }, {
@@ -25,11 +27,12 @@ function createLink(scope, element, attr, main){
                 easing: "easeOutExpo",
             });
             velocity(button, {
-                width: "100vw",
-                height: "100vh",
-                left: 0,
-                top: 0,
-                margin: 0
+                'width': "100vw",
+                'height': "100vh",
+                'left': 0,
+                'top': 0,
+                'margin': 0,
+                'border-radius': "0%"
             }, {
                 duration: 450,
                 easing: "easeInOutCubic",
@@ -71,7 +74,7 @@ function createLink(scope, element, attr, main){
                 'height': '70vh',
                 'width': '80vw'
             }, {
-                duration: 800,
+                duration: 400,
                 queue: false,
                 easing: 'swing'
             });
@@ -85,10 +88,10 @@ function createLink(scope, element, attr, main){
                 })
             }, 800);
             setTimeout( function() { velocity(button, {
-                    'width': '10vh',
-                    'height': '10vh',
-                    'left': '80vw',
-                    'top': '25vh'
+                    'width': '11.9vh',
+                    'height': '11.9vh',
+                    'left': '85vw',
+                    'top': '24vh'
                 }, { 
                     duration: 650,
                     queue: false,
@@ -103,6 +106,66 @@ function createLink(scope, element, attr, main){
                     easing: 'easeInOutCirc' 
                 })
             }, 1000);
+            setTimeout( function() {
+                scope.$apply(icon.removeClass('not-present'));
+                timeline.start();
+            }, 1450)
         };
     });
+    
+    var scaleCurve = mojs.easing.path('M0,100 L25,99.9999983 C26.2328835,75.0708847 19.7847843,0 100,0');
+    var el = document.querySelector('#animation-frame');
+	var elSpan = document.querySelector('#create-icon');
+	// mo.js timeline obj
+	var timeline = new mojs.Timeline();
+
+	// tweens for the animation:
+
+	// burst animation
+	var tween1 = new mojs.Burst({
+		parent: el,
+		duration: 1500,
+		shape : 'circle',
+		fill : [ '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF' ],
+		x: '88%',
+		y: '29.95%',
+		opacity: 0.6,
+		childOptions: { radius: {20:0} },
+		radius: {100:200},
+		count: 6,
+		isSwirl: true,
+		isRunLess: true,
+		easing: mojs.easing.bezier(0.1, 1, 0.3, 1)
+	});
+	// ring animation
+	var tween2 = new mojs.Transit({
+		parent: el,
+		duration: 750,
+		type: 'circle',
+		radius: {0: 100},
+		fill: 'transparent',
+		stroke: '#FFFFFF',
+		strokeWidth: {15:0},
+		opacity: 0.6,
+		x: '88%',     
+		y: '29.95%',
+		isRunLess: true,
+		easing: mojs.easing.bezier(0, 1, 0.5, 1)
+	});
+	// icon scale animation
+	var tween3 = new mojs.Tween({
+		duration : 900,
+		onUpdate: function(progress) {
+			var scaleProgress = scaleCurve(progress);
+			elSpan.style.WebkitTransform = elSpan.style.transform = 'scale3d(' + scaleProgress + ',' + scaleProgress + ',1)';
+		}
+	});
+
+    // add tweens to timeline:
+    timeline.add(tween1, tween2, tween3);
+    window.testAnimation = function() {
+        timeline.start();
+    };
+
+    
 }
