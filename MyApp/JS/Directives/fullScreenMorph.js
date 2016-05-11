@@ -19,7 +19,7 @@ function createLink(scope, element, attr, main){
     element.on('click', function () {
         if(!scope.main.createFormOpen)
         {
-            scope.$apply(icon.addClass('not-present'));
+            iconExit.start();
             velocity(oldButtonText, {
                 "opacity": "0"
             }, {
@@ -28,7 +28,7 @@ function createLink(scope, element, attr, main){
             });
             velocity(button, {
                 'width': "100vw",
-                'height': "100vh",
+                'height': "30vh",
                 'left': 0,
                 'top': 0,
                 'margin': 0,
@@ -45,20 +45,17 @@ function createLink(scope, element, attr, main){
                     scope.$apply(button.attr('md-no-ink', ''));
                     scope.$apply($('.md-ripple-container').remove());
                     scope.$apply(formContainer.removeClass('not-present'));
+                    scope.$apply(scope.main.createFormOpen = true);
+                    scope.$apply($('#animation-frame').removeClass("not-present"));
                 }
             });
-            velocity(button, {
-                height: "30vh"
+            velocity(formContainer, {
+                'top': "30vh"
             }, {
-                duration: 750,
+                duration: 450,
                 easing: "easeInOutCubic",
                 queue: false,
-                delay: 750,
-                complete: function () {
-                    scope.$apply(scope.main.createFormOpen = true);
-                    console.log("Finished!");
-                    
-                }
+                delay: 300
             });
         };
     });
@@ -108,16 +105,18 @@ function createLink(scope, element, attr, main){
             }, 1000);
             setTimeout( function() {
                 scope.$apply(icon.removeClass('not-present'));
-                timeline.start();
+                iconEntrance.start();
             }, 1450)
         };
     });
     
-    var scaleCurve = mojs.easing.path('M0,100 L25,99.9999983 C26.2328835,75.0708847 19.7847843,0 100,0');
+    var expandCurve = mojs.easing.path('M0,100 L25,99.9999983 C26.2328835,75.0708847 19.7847843,0 100,0');
+    var shrinkCurve = mojs.easing.path('M0, 0, C80, 0, 100, 80, 100, 100');
     var el = document.querySelector('#animation-frame');
 	var elSpan = document.querySelector('#create-icon');
 	// mo.js timeline obj
-	var timeline = new mojs.Timeline();
+	var iconEntrance = new mojs.Timeline();
+    var iconExit = new mojs.Timeline();
 
 	// tweens for the animation:
 
@@ -156,16 +155,24 @@ function createLink(scope, element, attr, main){
 	var tween3 = new mojs.Tween({
 		duration : 900,
 		onUpdate: function(progress) {
-			var scaleProgress = scaleCurve(progress);
-			elSpan.style.WebkitTransform = elSpan.style.transform = 'scale3d(' + scaleProgress + ',' + scaleProgress + ',1)';
+			var expandProgress = expandCurve(progress);
+			elSpan.style.WebkitTransform = elSpan.style.transform = 'scale3d(' + expandProgress + ',' + expandProgress + ',1)';
+		}
+	});
+    var tween4 = new mojs.Tween({
+		duration : 250,
+		onUpdate: function(progress) {
+			var shrinkProgress = shrinkCurve(progress);
+			elSpan.style.WebkitTransform = elSpan.style.transform = 'scale3d(' + shrinkProgress + ',' + shrinkProgress + ',1)';
 		}
 	});
 
     // add tweens to timeline:
-    timeline.add(tween1, tween2, tween3);
-    window.testAnimation = function() {
-        timeline.start();
-    };
+    iconEntrance.add(tween2, tween3);
+    iconExit.add(tween1, tween4);
+    
+    window.testOut = function() { iconExit.start(); };
+    window.testIn = function() { iconEntrance.start(); };
 
     
 }

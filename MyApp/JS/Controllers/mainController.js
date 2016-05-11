@@ -18,4 +18,5 @@ app.controller('MainController', function ($scope, $timeout, $mdSidenav, $mdUtil
     this.createFormOpen = false;
     this.createFormClosing = false;
     this.createFormClosed = true;
+;
 });
