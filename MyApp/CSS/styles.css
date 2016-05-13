@@ -160,3 +160,12 @@ md-dialog.fullscreen-dialog {
 .invisible {
     opacity: 0;
 }
+
+morph-fab {
+    width: 400px; 
+    height: 400px; 
+    position: absolute; 
+    display: block;
+    top: 0px;
+    left: 0px;
+}

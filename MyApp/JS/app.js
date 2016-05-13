@@ -18,8 +18,8 @@ app.config(function($mdIconProvider) {
 
 var fs = require("fs");
 var sqlite3 = require('sqlite3').verbose();
-var velocity = require('../../Bower Library/velocity/velocity.js');
 
+var velocity = require('../../Bower Library/velocity/velocity.js');
 window.snap = require('snapsvg');
 window.$ = window.jQuery = require('../../Bower Library/jquery/dist/jquery.js');
 

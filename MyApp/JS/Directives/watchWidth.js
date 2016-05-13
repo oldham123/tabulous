@@ -11,7 +11,6 @@ app.directive('watchWidth', ['$timeout', function($timeout) {
                 }
                 else {
                     scope.finishedChecking = "true";
-                    console.log(Length.toPx(document.getElementById('initial-create-button'), '60vw') - 0.5*elem.prop('offsetWidth'));
                     elem.css('left', Length.toPx(document.getElementById('initial-create-button'), '60vw') - 0.5*elem.prop('offsetWidth') + "px");
                 }
             }
