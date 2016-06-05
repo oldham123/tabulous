@@ -25,7 +25,8 @@
     "angular-animate": "^1.5.3",
     "angular-messages": "^1.5.3",
     "velocity": "^1.2.3",
-    "mojs": "^0.174.4"
+    "mojs": "^0.174.4",
+    "vivus": "^0.3.0"
   },
   "resolutions": {
     "angular": "1.5.3",
