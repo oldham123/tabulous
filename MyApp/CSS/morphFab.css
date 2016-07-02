@@ -21,8 +21,8 @@
 }
 
 #morph-fab-content {
-    height: 100%;
-    width: 100%;
+    height: 90vh;
+    width: 90vw;
     position: absolute;
     background-color: #FFFFFF;
     top: 50%;
@@ -53,29 +53,22 @@
     z-index: 99999998;
 }
 
-#morph-fab-header{
-    height: 50%;
-    width: 100%;
-    position: absolute;
-    background-color: #A1887F;
-    top: 42.5%;
-    left: 50%;
-    transform: translate(-50%,-100%);
+#morph-fab-left{
+    position: relative;
+    height: 90vh;
+    width: 40vw;
+    background-image:linear-gradient(180deg, rgba(255,255,255,0) 30%, rgba(0,0,0,0.75) 100%), url(../Assets/tournamentCreate.jpg); 
+    background-size: 100%, cover; 
+    background-position: center, center 25%;
+    display: inline-block;
+    /*transform: translate(-50%,-50%);*/
 }
 
-#morph-fab-svg{
-    position: absolute;
-    top: 97%;
-    left: 80%;
-    transform: translate(-50%,-100%);
-    height: 26vh;
-    width: 26vh;
-    opacity: 0;
-}
-
-#morph-fab-title{
-    position: absolute;
-    top: 90%;
-    left: 38%;
-    transform: translate(-50%,-100%);
+#morph-fab-right{
+    position: relative;
+    height: 90vh;
+    width: 49.5vw;
+    background-color: green;
+    display: inline-block;
+    /*transform: translate(-50%,-50%);*/
 }

@@ -14,7 +14,7 @@ function morphFab() {
         var content = $('#morph-fab-content');
         var contentClip = $('#morph-fab-circular-clip');
         var header = $('#morph-fab-header');
-        var form = $('#morph-fab-header');
+        var form = $('#morph-fab-form');
         var fade = $('#morph-fab-fade');
         var svg = 'morph-fab-svg';
         
@@ -22,14 +22,6 @@ function morphFab() {
         
         var expandedCircleDiameter = 10 + Math.ceil(Math.sqrt( Math.pow(convert("100vw"), 2) + Math.pow(convert("30vh"), 2) ));
         var initialCircleDiameter = "10vh";
-        
-        function svgEntrance() {
-            var svgAnimation = new Vivus(svg, {duration: 100});
-            velocity($('#' + svg), {
-                "opacity": "1"
-            }, 50);
-            svgAnimation.play();
-        };
         
         contentClip.css("height", initialCircleDiameter);
         contentClip.css("width", initialCircleDiameter);
