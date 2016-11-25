@@ -20,6 +20,10 @@ p {
   font-family: 'Roboto', sans-serif;
   font-size: 1.2em;
   text-align: center;
+  animation-duration: 1s;
+  animation-delay: 1s;
+  animation-fill-mode: both;
+  animation-name: fadeIn;
 }
 
 img {
@@ -27,4 +31,18 @@ img {
   margin: auto;
   display: block;
   padding-top: 5vh;
+  animation-duration: 1s;
+  animation-delay: 2s;
+  animation-fill-mode: both;
+  animation-name: fadeIn;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  
+  to {
+    opacity: 1;
+  }
 }
