@@ -4,37 +4,74 @@ body {
   margin: 0px;
 }
 
-div {
-  height: 100%;
-  width: 100%;
-  padding-top: 15vh;
-}
+@media (max-width: 700px) {
+    div {
+      height: 100%;
+      width: 100%;
+      padding-top: 15vh;
+    }
 
-svg { visibility: hidden;
-      transform: scale(0.8, 0.8);
-      display: block;
+    svg { visibility: hidden;
+          transform: scale(0.8, 0.8);
+          display: block;
+          margin: auto;
+    }
+
+    p {
+      font-family: 'Roboto', sans-serif;
+      font-size: 1.2em;
+      text-align: center;
+      animation-duration: 2s;
+      animation-delay: 2s;
+      animation-fill-mode: both;
+      animation-name: fadeIn;
+    }
+
+    img {
+      width: 70vw;
       margin: auto;
+      display: block;
+      padding-top: 5vh;
+      animation-duration: 2s;
+      animation-delay: 4s;
+      animation-fill-mode: both;
+      animation-name: fadeIn;
+    }
 }
 
-p {
-  font-family: 'Roboto', sans-serif;
-  font-size: 1.2em;
-  text-align: center;
-  animation-duration: 2s;
-  animation-delay: 2s;
-  animation-fill-mode: both;
-  animation-name: fadeIn;
-}
+@media (min-width: 701px) {
+    div {
+      height: 100%;
+      width: 100%;
+      padding-top: 15vh;
+    }
 
-img {
-  width: 70vw;
-  margin: auto;
-  display: block;
-  padding-top: 5vh;
-  animation-duration: 2s;
-  animation-delay: 4s;
-  animation-fill-mode: both;
-  animation-name: fadeIn;
+    svg { visibility: hidden;
+          transform: scale(0.8, 0.8);
+          display: block;
+          margin: auto;
+    }
+
+    p {
+      font-family: 'Roboto', sans-serif;
+      font-size: 1.2em;
+      text-align: center;
+      animation-duration: 2s;
+      animation-delay: 2s;
+      animation-fill-mode: both;
+      animation-name: fadeIn;
+    }
+
+    img {
+      width: 70vw;
+      margin: auto;
+      display: block;
+      padding-top: 5vh;
+      animation-duration: 2s;
+      animation-delay: 4s;
+      animation-fill-mode: both;
+      animation-name: fadeIn;
+    }
 }
 
 @keyframes fadeIn {
